@@ -1,0 +1,41 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1738497217961,
+      "tag": "0000_flowery_morbius",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1738509776511,
+      "tag": "0001_far_sharon_carter",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1738736057289,
+      "tag": "0002_young_hellion",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1738736225679,
+      "tag": "0003_curly_pepper_potts",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1738751409831,
+      "tag": "0004_cheerful_sally_floyd",
+      "breakpoints": true
+    }
+  ]
+}
