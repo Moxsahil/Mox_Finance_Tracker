@@ -65,7 +65,7 @@ export const TransactionForm = ({
         defaultValues: {
             ...defaultValues, 
             payee: defaultValues?.payee ?? "",  // Ensuring  payee is always a string otherwise it will be intially shown as undefined
-            date: defaultValues?.date
+            date: defaultValues?.date ?? new Date(),
         },
     });
     
