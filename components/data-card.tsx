@@ -70,22 +70,28 @@ export const DataCard = ({
     percentageChange = 0,
 }: DataCardProps) => {
     return (
-        <Card className="border-none drop-shadow-sm">
-           <CardHeader className="flex flex-row items-center justify-between gap-x-4">
+        <Card className="group relative border-0 bg-gradient-to-br from-white/80 to-white/60 dark:from-gray-900/80 dark:to-gray-800/60 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] overflow-hidden">
+            {/* Subtle gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/20 via-transparent to-purple-50/20 dark:from-blue-900/10 dark:via-transparent dark:to-purple-900/10 group-hover:opacity-100 opacity-50 transition-opacity duration-300"></div>
+            
+           <CardHeader className="relative flex flex-row items-center justify-between gap-x-4 pb-3">
            <div className="space-y-2">
-           <CardTitle className="text-2xl line-clamp-1">
+           <CardTitle className="text-xl font-bold line-clamp-1 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
                 {title}
             </CardTitle>
-            <CardDescription className="line-clamp-1">
+            <CardDescription className="line-clamp-1 text-xs font-medium">
                 {dateRange}
             </CardDescription>
            </div>
-           <div className={cn(boxVariant({ variant }))}>
+           <div className={cn(
+               boxVariant({ variant }),
+               "group-hover:scale-110 transition-transform duration-300 shadow-lg"
+           )}>
            <Icon className={cn(iconVariant({ variant }))} />
            </div>
            </CardHeader>
-           <CardContent>
-            <h1 className="font-bold text-2xl mb-2 line-clamp-1 break-all">
+           <CardContent className="relative pt-0">
+            <h1 className="font-bold text-3xl mb-3 line-clamp-1 break-all bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-200 bg-clip-text text-transparent">
                 <CountUp 
                     preserveValue
                     start={0}
@@ -95,11 +101,18 @@ export const DataCard = ({
                     formattingFn={formatCurrency}
                 />
             </h1>
-            <p className={cn("text-sm text-muted-foreground line-clamp-1",
-                percentageChange > 0 ? "text-emerald-500" : "text-rose-500"
-            )}>
-                {formatPercentage(percentageChange, { addPrefix: true })} from last period
-            </p>
+            <div className="flex items-center space-x-2">
+                <div className={cn(
+                    "w-2 h-2 rounded-full",
+                    percentageChange > 0 ? "bg-emerald-500" : "bg-rose-500"
+                )}></div>
+                <p className={cn(
+                    "text-sm font-semibold line-clamp-1 flex items-center gap-1",
+                    percentageChange > 0 ? "text-emerald-600" : "text-rose-600"
+                )}>
+                    {formatPercentage(percentageChange, { addPrefix: true })} from last period
+                </p>
+            </div>
            </CardContent>
         </Card>
     );

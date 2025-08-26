@@ -6,6 +6,8 @@ import accounts from './accounts';
 import categories from './categories';
 import transactions from './transactions';
 import summary from './summary';
+import goals from './goals';
+import insights from './insights';
 
 
 export const runtime = "edge"
@@ -25,6 +27,8 @@ const routes = app
 .route("/accounts", accounts)
 .route("/categories", categories)
 .route("/transactions", transactions)
+.route("/goals", goals)
+.route("/insights", insights)
 
 export const GET = handle(app);
 export const POST = handle(app);

@@ -35,8 +35,22 @@ const app = new Hono()
         const defaultFrom = subDays(defaultTo, 365);
         
 
-        const startDate = from ? parse(from, "yyyy-MM-dd", new Date()) : defaultFrom;
-        const endDate = to ? parse(to, "yyyy-MM-dd", new Date()) : defaultTo;
+        const startDate = from 
+            ? (() => {
+                const parsed = parse(from, "yyyy-MM-dd", new Date());
+                // Set to start of day to include all transactions on the start date
+                parsed.setHours(0, 0, 0, 0);
+                return parsed;
+            })()
+            : defaultFrom;
+        const endDate = to 
+            ? (() => {
+                const parsed = parse(to, "yyyy-MM-dd", new Date());
+                // Set to end of day to include all transactions on the end date
+                parsed.setHours(23, 59, 59, 999);
+                return parsed;
+            })()
+            : defaultTo;
 
         const data = await db
         .select({

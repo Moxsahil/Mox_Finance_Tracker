@@ -53,7 +53,7 @@ export const useSelectAccount = (): [() => JSX.Element, () => Promise<unknown>] 
 
     const ConfirmationDialog = () => {
         return (
-            <Dialog open={promise !== null}>
+            <Dialog open={promise !== null} onOpenChange={(open) => !open && handleClose()}>
                 <DialogContent aria-describedby={undefined}>
                     <DialogHeader>
                         <DialogTitle>

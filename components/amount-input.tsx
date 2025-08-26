@@ -43,9 +43,9 @@ export const AmountInput = ({
                             type="button" 
                             onClick={onReverseValue}
                             className={cn(
-                                "bg-slate-400 hover:bg-slate-500 absolute top-1.5 left-1.5 rounded-md p-2 flex items-center justify-center transition",
-                                isIncome && "bg-emerald-500 hover:bg-green-600",
-                                isExpense && "bg-rose-400 hover:bg-rose-500"
+                                "bg-neutral-400 dark:bg-neutral-600 hover:bg-neutral-500 dark:hover:bg-neutral-500 absolute top-2 left-2 rounded-xl p-2 flex items-center justify-center transition-all duration-200 hover:scale-105",
+                                isIncome && "bg-emerald-500 dark:bg-emerald-600 hover:bg-emerald-600 dark:hover:bg-emerald-500",
+                                isExpense && "bg-rose-500 dark:bg-rose-600 hover:bg-rose-600 dark:hover:bg-rose-500"
                             )}
                         >
                             { !parsedValue && <Info className="size-3 text-white"/>}
@@ -53,14 +53,14 @@ export const AmountInput = ({
                             { isExpense && <MinusCircle className="size-3 text-white"/>}
                         </button>
                     </TooltipTrigger>
-                    <TooltipContent>
+                    <TooltipContent className="bg-white/95 dark:bg-neutral-900/95 backdrop-blur-xl border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-white shadow-xl rounded-xl">
                         Use [+] for income and [-] for expense
                     </TooltipContent>
                 </Tooltip>
             </TooltipProvider>
             <CurrencyInput 
                 prefix="₹"
-                className="pl-10 flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                className="pl-12 h-12 w-full rounded-2xl border-2 border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 px-4 py-3 text-sm font-medium text-neutral-900 dark:text-white placeholder:text-neutral-500 dark:placeholder:text-neutral-400 focus:outline-none focus:border-black dark:focus:border-white focus:bg-neutral-100 dark:focus:bg-neutral-700 transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50"
                 placeholder={placeholder}
                 value={value}
                 decimalsLimit={2}
@@ -68,7 +68,7 @@ export const AmountInput = ({
                 onValueChange={onChange}
                 disabled={disabled}
             />
-            <p className="text-xs text-muted-foreground mt-2">
+            <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-2 font-medium">
                 {isIncome && "This will count as an income"}
                 {isExpense && "This will count as an expense"}
             </p>

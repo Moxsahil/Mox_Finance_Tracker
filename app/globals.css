@@ -8,10 +8,240 @@ body {
 
 html {
   @apply bg-white text-black;
+  scroll-behavior: smooth;
 }
 
 html.dark {
   @apply bg-gray-900 text-white;
+}
+
+/* Modern blob animations */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Fade in animations */
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out;
+}
+
+.animate-delay-200 {
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+}
+
+.animate-delay-300 {
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+}
+
+/* Hide Clerk branding and development mode text */
+.cl-footerAction,
+.cl-footer,
+.cl-footerActionText,
+.cl-footerPages,
+.cl-footerPagesLink,
+.cl-internal-b3fm6y {
+  display: none !important;
+}
+
+/* Hide development mode banner */
+.cl-developmentBanner,
+.cl-internal-1qfyg2x {
+  display: none !important;
+}
+
+/* Hide "Secured by Clerk" text */
+[data-localization-key="footerActionLink__signIn"],
+[data-localization-key="footerActionLink__signUp"],
+.cl-footerActionLink {
+  display: none !important;
+}
+
+/* Enhanced UserButton popup styling */
+.cl-userButtonPopoverCard {
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
+/* Force proper backgrounds for light/dark mode */
+html:not(.dark) .cl-userButtonPopoverCard {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  color: #171717 !important;
+}
+
+html.dark .cl-userButtonPopoverCard {
+  background-color: rgba(23, 23, 23, 0.95) !important;
+  color: #ffffff !important;
+}
+
+html:not(.dark) .cl-userPreview {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  color: #171717 !important;
+}
+
+html.dark .cl-userPreview {
+  background-color: rgba(38, 38, 38, 0.8) !important;
+  color: #ffffff !important;
+}
+
+html:not(.dark) .cl-userButtonPopoverActionButton {
+  color: #171717 !important;
+}
+
+html.dark .cl-userButtonPopoverActionButton {
+  color: #ffffff !important;
+}
+
+html:not(.dark) .cl-userButtonPopoverActionButton:hover {
+  background-color: rgba(245, 245, 245, 0.8) !important;
+}
+
+html.dark .cl-userButtonPopoverActionButton:hover {
+  background-color: rgba(64, 64, 64, 0.8) !important;
+}
+
+/* Fix all text colors in the popup */
+html:not(.dark) .cl-userPreviewMainIdentifier,
+html:not(.dark) .cl-userPreviewSecondaryIdentifier,
+html:not(.dark) .cl-userButtonPopoverActionButtonText {
+  color: #171717 !important;
+}
+
+html.dark .cl-userPreviewMainIdentifier,
+html.dark .cl-userPreviewSecondaryIdentifier, 
+html.dark .cl-userButtonPopoverActionButtonText {
+  color: #ffffff !important;
+}
+
+/* Fix icon colors */
+html:not(.dark) .cl-userButtonPopoverActionButtonIcon {
+  color: #525252 !important;
+}
+
+html.dark .cl-userButtonPopoverActionButtonIcon {
+  color: #d4d4d4 !important;
+}
+
+/* Force dark theme for ALL Clerk popup elements */
+html.dark .cl-userButtonPopoverCard,
+html.dark .cl-userButtonPopover,
+html.dark .cl-popoverCard,
+html.dark .cl-card {
+  background-color: rgba(23, 23, 23, 0.95) !important;
+  border-color: rgba(115, 115, 115, 0.3) !important;
+}
+
+html.dark .cl-userButtonPopoverCard *,
+html.dark .cl-userButtonPopover *,
+html.dark .cl-popoverCard * {
+  color: #ffffff !important;
+}
+
+/* Force dark backgrounds for all child elements */
+html.dark .cl-userPreview,
+html.dark .cl-userButtonPopoverActions,
+html.dark .cl-userButtonPopoverMain,
+html.dark .cl-userButtonPopoverFooter {
+  background-color: transparent !important;
+}
+
+/* Force button styling in dark mode */
+html.dark .cl-userButtonPopoverActionButton {
+  background-color: rgba(64, 64, 64, 0.3) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(115, 115, 115, 0.2) !important;
+}
+
+html.dark .cl-userButtonPopoverActionButton:hover {
+  background-color: rgba(64, 64, 64, 0.6) !important;
+  color: #ffffff !important;
+}
+
+/* Hide Clerk branding in user profile popup */
+.cl-userButtonPopoverFooter,
+.cl-userButtonPopoverCard .cl-footer,
+.cl-userButtonPopoverCard .cl-footerAction,
+.cl-userButtonPopoverCard .cl-footerActionText,
+.cl-userButtonPopoverCard .cl-footerPages,
+.cl-userButtonPopoverCard .cl-footerPagesLink,
+.cl-userButtonPopoverCard .cl-developmentBanner,
+.cl-userButtonPopover .cl-footer,
+.cl-userButtonPopover .cl-footerAction,
+.cl-userButtonPopover .cl-developmentBanner {
+  display: none !important;
+}
+
+/* Hide any text containing "Secured by Clerk" or "Development mode" */
+.cl-userButtonPopoverCard [data-localization-key*="footer"],
+.cl-userButtonPopoverCard [data-localization-key*="development"],
+.cl-userButtonPopover [data-localization-key*="footer"],
+.cl-userButtonPopover [data-localization-key*="development"] {
+  display: none !important;
+}
+
+.cl-userButtonPopoverActionButton:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.cl-userPreview {
+  transition: all 0.3s ease !important;
+}
+
+.cl-userPreview:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Smooth animations for popup */
+.cl-userButtonPopoverCard {
+  animation: popupSlideIn 0.2s ease-out !important;
+}
+
+@keyframes popupSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @layer base {
@@ -77,4 +307,192 @@ html.dark {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Custom animations for the transactions page */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.6); }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s ease-out;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background-size: 200px 100%;
+}
+
+/* Enhanced table row animations */
+.data-table-row {
+  transition: all 0.2s ease-in-out;
+}
+
+.data-table-row:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.05), rgba(147, 51, 234, 0.05));
+}
+
+/* Contemporary blob animations */
+@keyframes blob {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Modern card hover effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Neumorphism effects */
+.neumorphism-light {
+  background: #e0e0e0;
+  border-radius: 20px;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+}
+
+.neumorphism-dark {
+  background: #1f1f1f;
+  border-radius: 20px;
+  box-shadow: 20px 20px 60px #1a1a1a, -20px -20px 60px #242424;
+}
+
+/* Contemporary pulse animation */
+@keyframes pulse-modern {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-modern {
+  animation: pulse-modern 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Scroll-triggered fade-in animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes staggeredFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.animate-staggered-fade-in {
+  animation: staggeredFadeIn 0.6s ease-out;
+}
+
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+
+/* Glassmorphism effect */
+.glass-effect {
+  backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.glass-effect-dark {
+  backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.125);
 }

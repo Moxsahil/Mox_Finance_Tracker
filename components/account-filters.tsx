@@ -59,15 +59,15 @@ export const AccountFilters = () => {
             onValueChange={onChange}
             disabled={isLoadingAccounts || isLoadingSummary}
         >
-            <SelectTrigger className="lg:w-auto h-9 rounded-md px-3 w-full font-normal bg-white/10 hover:bg-white/20 hover:text-white border-none focus:ring-offset-0 focus:ring-transparent outline-none text-white focus:bg-white/30 transition">
+            <SelectTrigger className="h-12 rounded-2xl px-4 w-full font-medium bg-neutral-50 dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-700 border-2 border-neutral-200 dark:border-neutral-700 focus:ring-offset-0 focus:ring-2 focus:ring-neutral-900 dark:focus:ring-neutral-100 text-neutral-900 dark:text-white transition-all duration-200">
                 <SelectValue placeholder="Select an account" />
             </SelectTrigger>
-            <SelectContent>
-                <SelectItem value="all">
+            <SelectContent className="bg-white/90 dark:bg-neutral-900/90 backdrop-blur-xl border border-neutral-200 dark:border-neutral-800 shadow-xl rounded-2xl">
+                <SelectItem value="all" className="hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:bg-neutral-100 dark:focus:bg-neutral-800 text-neutral-900 dark:text-white">
                     All accounts
                 </SelectItem>
                 {accounts?.map((account) => (
-                    <SelectItem key={account.id} value={account.id}>
+                    <SelectItem key={account.id} value={account.id} className="hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:bg-neutral-100 dark:focus:bg-neutral-800 text-neutral-900 dark:text-white">
                         {account.name}
                     </SelectItem>
                 ))}

@@ -11,6 +11,8 @@ import { EditCategorySheet } from "@/features/categories/components/edit-categor
 import { NewTransactionSheet } from "@/features/transactions/components/new-transaction-sheet";
 import { EditTransactionSheet } from "@/features/transactions/components/edit-transaction-sheet";
 
+import { NewGoalSheet } from "@/features/goals/components/new-goal-sheet";
+
 
 export const SheetProvider = () => {
 
@@ -35,6 +37,8 @@ export const SheetProvider = () => {
 
         <NewTransactionSheet />
         <EditTransactionSheet />
+
+        <NewGoalSheet />
         </>
     )
 }
